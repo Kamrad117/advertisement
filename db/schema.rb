@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506125248) do
+ActiveRecord::Schema.define(version: 20170506140830) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,7 +51,9 @@ ActiveRecord::Schema.define(version: 20170506125248) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "client_id"
+    t.integer "post_id"
     t.index ["client_id"], name: "index_assets_on_client_id"
+    t.index ["post_id"], name: "index_assets_on_post_id"
   end
 
   create_table "banners", force: :cascade do |t|
@@ -73,6 +75,15 @@ ActiveRecord::Schema.define(version: 20170506125248) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "short_description"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
