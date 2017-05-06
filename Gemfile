@@ -61,3 +61,16 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 
 # Js library
 gem 'jquery-rails'
+
+# Admin engine
+gem 'activeadmin'
+  gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
+  gem 'erubis'
+
+  gem 'cancan' # or cancancan
+  gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+  gem 'pundit'
+
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'ransack',             github: 'activerecord-hackery/ransack'
+gem 'draper',              '> 3.x'
