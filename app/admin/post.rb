@@ -24,6 +24,44 @@ ActiveAdmin.register Post do
     f.actions
   end
 
+  show do
+    panel "Asset details" do
+      attributes_table_for post do
+        row :name 
+        row :short_description
+        row :description
+        row :assets do |post|
+          ul do 
+            post.assets.each do |asset|
+              li do 
+                link_to image_tag(asset.image.url(:thumb)), admin_asset_url(asset)
+              end
+            end
+          end
+        end
+      end
+    end
+    active_admin_comments
+  end
+
+  index do
+    selectable_column
+    column :name { |post| link_to post.name, admin_post_url(post) }
+    column :short_description
+    column :description
+    column :post_type
+    column :images do |post|
+      ul do 
+        post.assets.each do |asset|
+          li do 
+            link_to image_tag(asset.image.url(:thumb)), admin_asset_url(asset)
+          end
+        end
+      end
+    end
+    actions defaults: true
+  end
+
 end
 
 

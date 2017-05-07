@@ -1,2 +1,0 @@
-class SlideShow < ApplicationRecord
-end
