@@ -62,6 +62,10 @@ ActiveAdmin.register Post do
     actions defaults: true
   end
 
+  scope("News") { |scope| scope.where(post_type: 'news') }
+  scope("Articles") { |scope| scope.where(post_type: 'article') }
+  scope("Services") { |scope| scope.where(post_type: 'service') }
+
 end
 
 

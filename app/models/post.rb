@@ -6,4 +6,16 @@ class Post < ApplicationRecord
   def self.post_types
     %w(news article service)
   end
+
+  def self.news 
+    Post.where(post_type: 'news')
+  end
+
+  def self.article 
+    Post.where(post_type: 'article')
+  end
+
+  def self.service 
+    Post.where(post_type: 'service')
+  end
 end
